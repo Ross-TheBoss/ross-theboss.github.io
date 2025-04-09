@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">&#127878; Plymouth Fireworks</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>  
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav-pills">
+            <li class="nav-item mx-2">
+                <a class="nav-link px-4 <%if(page==='Home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link px-4 <%if(page==='Events'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/events">Events</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link px-4 <%if(page==='Amenities'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/amenities">Amenities</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link px-4 <%if(page==='Archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/archive">Archive</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <div class="container py-1">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page"><%= page %></li>
+        </ol>
+    </div>
+</nav>

@@ -58,10 +58,10 @@ $success: #7952b3;
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
-// @import "bootstrap/scss/nav";
-// @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
-// @import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar"; // Requires nav
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/accordion";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
@@ -76,10 +76,10 @@ $success: #7952b3;
 // @import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
 @import "bootstrap/scss/offcanvas"; // Requires transitions
-// @import "bootstrap/scss/placeholders";
+@import "bootstrap/scss/placeholders";
 
 // Helpers
-// @import "bootstrap/scss/helpers";
+@import "bootstrap/scss/helpers";
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
@@ -90,7 +90,3 @@ $success: #7952b3;
 //
 
 @import "icon-list";
-
-body {
-  padding: 1.5rem;
-}
