@@ -13,6 +13,48 @@
     <main>
       <div class="container py-4 px-3 mx-auto">
         <h1 class="text-center">Upcoming Events</h1>
+        <button class="btn btn-primary d-block mx-auto"><i class="bi bi-calendar-fill"></i> View Calendar</button>
+
+        <form class="row my-5">
+          <div class="col-9">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Search for an event..." aria-label="Search">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-text">Sort By:</span>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Date (Earliest First)</option>
+                <option value="1">Date (Latest First)</option>
+                <option value="2">Alphabetical (A-Z)</option>
+                <option value="3">Alphabetical (Z-A)</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <div class="mt-5 mb-3">
+          <%- include('partials/event-card') %>
+          <%- include('partials/event-card') %>
+          <%- include('partials/event-card') %>
+          <%- include('partials/event-card') %>
+          <%- include('partials/event-card') %>
+        </div>
+
+        <div class="d-flex">
+          <button class="btn btn-outline-primary rounded-5 mx-auto">
+            View More <i class="bi bi-arrow-down"></i>
+          </button>
+        </div>
+
+        <div class="fixed-bottom d-flex my-2 me-5 flex-column" style="margin-bottom: 6em !important;">
+          <a href="#" class="shadow btn btn-primary rounded-3 btn-lg ms-auto">
+            Return to Top <i class="bi bi-arrow-up"></i>
+          </a>
+        </div>
       </div>
     </main>
 
