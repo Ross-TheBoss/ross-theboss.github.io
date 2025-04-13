@@ -1,22 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Plymouth Fireworks</title>
+    <%- include('partials/head'); %>
   </head>
   <body>
-    <%- include('partials/header', {page: 'Amenities'}); %>
+    <%- include('partials/header', {page: ['amenities']}); %>
 
     <main>
-      <div class="container py-4 px-3 mx-auto">
+      <div class="container py-2 px-3 mx-auto">
         <h1 class="text-center">Amenities</h1>
       </div>
     </main>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>
 
     <script type="module" src="js/main.js"></script>
   </body>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<%- include('../partials/head'); %>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css' rel='stylesheet'/>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js'></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        firstDay: 1,
+        themeSystem: 'bootstrap5',
+        editable: true,
+        selectable: true,
+        businessHours: true,
+        dayMaxEvents: true,
+        events: [
+          {
+          title: 'Bonfire Night',
+          start: '2025-11-05',
+          url: '/events/bonfire-night-2025'
+          },
+        ], eventClick: function(info) {
+          info.jsEvent.preventDefault();
+          if (info.event.url) {
+            window.open(info.event.url);
+          }
+        }
+      });
+      calendar.render();
+    });
+    </script>
+  </head>
+  <body>
+<%- include('../partials/header', {page: ['events', 'calendar']}); %>
+
+    <main>
+      <div class="container py-2 px-3 mx-auto">
+        <h1 class="text-center">Upcoming Events</h1>
+        <div class="w-75 mx-auto" id="calendar"></div>
+      </div>
+    </main>
+
+<%- include('../partials/footer') %>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

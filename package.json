@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "npm run css",
-    "ejs-compile": "ejs-cli -b templates \"*.ejs\" --out .",
+    "clean": "find . -type f -name \"*.html\" -delete",
+    "ejs-compile": "ejs-cli -b templates \"**/*.ejs\" --exclude \"partials\" --out .",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules scss/:css/",
     "css-lint": "stylelint scss/",
     "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map",

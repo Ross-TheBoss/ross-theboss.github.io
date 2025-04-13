@@ -1,32 +1,38 @@
-<nav class="navbar navbar-expand-md bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">&#127878; Plymouth Fireworks</a>
+    <nav class="navbar navbar-expand-md bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">&#127878; Plymouth Fireworks</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>  
         <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav nav-pills">
+          <ul class="navbar-nav nav-pills">
             <li class="nav-item mx-2">
-                <a class="nav-link px-4 <%if(page==='Home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href="/">Home</a>
+              <a class="nav-link px-4 <%if(page[0]==='home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item mx-2">
-                <a class="nav-link px-4 <%if(page==='Events'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/events">Events</a>
+              <a class="nav-link px-4 <%if(page[0]==='events'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/events">Events</a>
             </li>
             <li class="nav-item mx-2">
-                <a class="nav-link px-4 <%if(page==='Amenities'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/amenities">Amenities</a>
+              <a class="nav-link px-4 <%if(page[0]==='amenities'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/amenities">Amenities</a>
             </li>
             <li class="nav-item mx-2">
-                <a class="nav-link px-4 <%if(page==='Archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/archive">Archive</a>
+              <a class="nav-link px-4 <%if(page[0]==='archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/archive">Archive</a>
             </li>
-        </ul>
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <div class="container py-1">
-        <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page"><%= page %></li>
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <div class="container py-1">
+        <ol class="breadcrumb"><% page.forEach((element, index) => { %><%if(index===page.length-1){%>
+          <li class="breadcrumb-item active" style="text-transform: capitalize;" aria-current="page">
+            <%=element%>
+          </li><%}else{%>
+          <li class="breadcrumb-item" style="text-transform: capitalize;" aria-current="page">
+            <a href="<%= "/" + page.slice(0, index+1).map((s) => s.replaceAll(" ", "-")).join("/") %>"><%=element%></a>
+          </li>
+            <%}%><% }) %>
         </ol>
-    </div>
-</nav>
+      </div>
+    </nav>
