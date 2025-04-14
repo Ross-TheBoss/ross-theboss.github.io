@@ -9,15 +9,15 @@
     "startCommand": "npm start"
   },
   "scripts": {
-    "build": "npm run css",
-    "clean": "find . -type f -name \"*.html\" -delete",
+    "build": "npm run clean && npm run css",
+    "clean": "find . -type f -name \"*.html\" -delete && find . -type d -name .git -prune -false -o -type d -empty -depth -delete",
     "ejs-compile": "ejs-cli -b templates \"**/*.ejs\" --exclude \"partials\" --out .",
-    "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules scss/:css/",
+    "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules scss/:static/css/",
     "css-lint": "stylelint scss/",
-    "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map",
+    "css-prefix": "postcss --replace static/css/styles.css --use autoprefixer --map",
     "css": "npm-run-all css-compile css-prefix ejs-compile",
     "server": "sirv --dev --no-clear --port 3000",
-    "start": "npm-run-all --parallel watch server",
+    "start": "npm run clean && npm-run-all --parallel watch server",
     "watch": "nodemon -e ejs,scss -x \"npm run css\"",
     "test": "npm-run-all css-lint css"
   },

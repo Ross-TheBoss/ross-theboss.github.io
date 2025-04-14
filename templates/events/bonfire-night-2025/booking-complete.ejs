@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+<%- include('../../partials/head'); %>
+  </head>
+  <body>
+<%- include('../../partials/header', {page: ['events', 'bonfire night 2025', 'booking complete']}); %>
+
+	<main>
+	  <div class="container py-2 px-3 mx-auto">
+	  <h1 class="text-center">Bonfire Night 2025 - Booking Complete</h1>
+
+	  <section class="d-flex flex-column justify-content-center">
+      <p class="text-center h3 my-5">The order for Bonfire Night 2025 tickets has been successfully placed!</p>
+
+      <p class="text-center h3 my-5">Please check your email inbox for your booking receipt!</p>
+
+      <p class="text-center h3 my-5">No longer able to attend? You may be eligible for a refund:<br><a href="#">Click here to get a refund</a></p>
+	  </section>
+
+	  <div class="w-100">
+		<a href="/events" class="btn btn-primary d-block px-5 mx-auto">Return to Events Page</a>
+	  </div>
+	</main>
+
+<%- include('../../partials/footer') %>
+  </body>
+</html>

@@ -1,6 +1,9 @@
     <nav class="navbar navbar-expand-md bg-light sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">&#127878; Plymouth Fireworks</a>
+        <a class="navbar-brand" href="/">
+          <img alt="Fireworks Logo" src="/static/images/fireworks-.png" class="ratio ratio-1x1" style="width: 2em;" />
+           Plymouth Fireworks
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>  
@@ -22,17 +25,17 @@
         </div>
       </div>
     </nav>
-
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <div class="container py-1">
-        <ol class="breadcrumb"><% page.forEach((element, index) => { %><%if(index===page.length-1){%>
+    <%if(page[0]!=='home'){
+    %><nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+      <div class="container">
+        <ol class="breadcrumb my-2"><% page.forEach((element, index) => { %><%if(index===page.length-1){%>
           <li class="breadcrumb-item active" style="text-transform: capitalize;" aria-current="page">
-            <%=element%>
+            <span><%=element%></span>
           </li><%}else{%>
-          <li class="breadcrumb-item" style="text-transform: capitalize;" aria-current="page">
+          <li class="breadcrumb-item" style="text-transform: capitalize;">
             <a href="<%= "/" + page.slice(0, index+1).map((s) => s.replaceAll(" ", "-")).join("/") %>"><%=element%></a>
           </li>
             <%}%><% }) %>
         </ol>
       </div>
-    </nav>
+    </nav><%}%>

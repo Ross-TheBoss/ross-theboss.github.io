@@ -1,12 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
 <%- include('../../partials/head'); %>
+    <script src="/static/js/booking.js"></script>
   </head>
   <body>
 <%- include('../../partials/header', {page: ['events', 'bonfire night 2025', 'booking']}); %>
 
 	<main>
+    <!-- Booking Cancellation Modal -->
+    <div class="modal fade" id="cancellationModal" tabindex="-1" aria-labelledby="cancellationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <h5 class="modal-title text-white" id="cancellationModalLabel">Booking Cancellation Confirmation</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            Are you sure you want to cancel your order?<br>Your changes will not be saved.
+          </div>
+          <div class="modal-footer w-100 d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary px-5" data-bs-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger px-5">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 	  <div class="container py-2 px-3 mx-auto">
       <h1 class="text-center">Bonfire Night 2025 - Booking</h1>
       <table class="table table-striped table-hover w-50 mx-auto d-block align-middle">
@@ -23,31 +43,41 @@
           <tr>
             <td>Adult</td>
             <td></td>
-            <td>£2.99</td>
-            <td><input class="form-control" type="number" min="0" value="0" max="100" style="width: 100%;"></input></td>
-            <td>£0.00</td>
+            <td class="GBP" id="adultPrice">2.99</td>
+            <td><input class="form-control" id="adultTickets" type="number" min="0" value="0" max="100" style="width: 100%;"></input></td>
+            <td class="GBP" id="adultSubtotal">0.00</td>
           </tr>
           <tr>
             <td>Student</td>
-            <td><i class="bi-info-circle-fill mx-5"></i></td>
-            <td>£2.50</td>
-            <td><input class="form-control" type="number" min="0" value="0" max="100" style="width: 100%;"></input></td>
-            <td>£0.00</td>
+            <td>
+              <a href="" onclick="return false;" 
+              data-bs-toggle="popover" data-bs-trigger="hover" 
+              data-bs-content="Anyone currently enrolled on a undergraduate or postgraduate course at a university. Must be in possession of student ID.">
+                <i class="bi-info-circle-fill h4 mx-5"></i>
+              </a>
+            </td>
+            <td class="GBP" id="studentPrice">2.50</td>
+            <td><input class="form-control" id="studentTickets" type="number" min="0" value="0" max="100" style="width: 100%;"></input></td>
+            <td class="GBP" id="studentSubtotal">0.00</td>
           </tr>
           <tr>
             <td>Child</td>
-            <td><i class="bi-info-circle-fill mx-5"></i></td>
-            <td>£1.99</td>
-            <td><input class="form-control" type="number" min="0" max="100" value="0" style="width: 100%;"></input></td>
-            <td>£0.00</td>
+            <td>
+              <a href="" onclick="return false;" 
+                 data-bs-toggle="popover" data-bs-trigger="hover" 
+                 data-bs-content="Anyone under the age of 16.">
+                <i class="bi-info-circle-fill h4 mx-5"></i>
+              </a>
+            </td>
+            <td class="GBP" id="childPrice">1.99</td>
+            <td><input class="form-control" id="childTickets" type="number" min="0" max="100" value="0" style="width: 100%;"></input></td>
+            <td class="GBP" id="childSubtotal">0.00</td>
           </tr>
           <tr>
             <td class="text-end" colspan="4">
               <b>Total</b>
             </td>
-            <td>
-              £0.00
-            </td>
+            <td class="GBP" id="total">0.00</td>
           </tr>
         </tbody>
       </table>
@@ -102,14 +132,13 @@
       </form>
 
       <div class="d-flex justify-content-evenly" role="group" aria-label="cancel and pay buttons">
-        <a href="/events/bonfire-night-2025/" class="btn btn-light btn-lg px-5" style="width: 20%;">Cancel</a>
-        <a href="#" class="btn btn-primary btn-lg px-5" style="width: 20%;">Pay</a>
+        
+        <button class="btn btn-secondary btn-lg px-5" style="width: 20%;" data-bs-toggle="modal" data-bs-target="#cancellationModal">Cancel</button>
+        <a href="/events/bonfire-night-2025/booking-complete" class="btn btn-primary btn-lg px-5" style="width: 20%;">Pay</a>
       </div>
 	  </div>
 	</main>
 
 <%- include('../../partials/footer') %>
-
-	<script type="module" src="/js/main.js"></script>
   </body>
 </html>

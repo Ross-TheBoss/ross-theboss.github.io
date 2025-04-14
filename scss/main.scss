@@ -1,0 +1,43 @@
+.jumbotron {
+  position: relative;
+  }
+
+.jumbotron video {
+  filter: brightness(60%);
+}
+
+.jumbotron-overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.jumbotron-overlay * {
+  background-color: rgba(0.0, 0.0, 0.0, 0.5);
+  margin: 0;
+}
+
+.social-share-btn {
+  width: 100px;
+  height: 100px;
+}
+
+@media print {
+  #returnToTop, #eventVideo, #eventVideoCaption, #eventMap {
+    display: none !important;
+  }
+
+  #eventSummaryBar {
+    margin-bottom: 1em !important;
+  }
+}
+
+.GBP::before {
+  content: "£";
+}
