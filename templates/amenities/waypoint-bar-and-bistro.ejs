@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+<%- include('../partials/head'); %>
+  </head>
+  <body>
+<%- include('../partials/header', {page: ['amenities', 'waypoint bar and bistro']}); %>
+
+    <main>
+      <div class="modal" id="shareModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h5 class="modal-title text-white">Share</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group">
+                <a class="form-control" href="http://localhost:3000/amenities/waypoint-bar-and-bistro">http://localhost:3000/amenities/waypoint-bar-and-bistro</a>
+                <a class="btn btn-primary" 
+                   type="button"
+                   role="button"
+                   tabindex="0"
+                   data-bs-toggle="popover"
+                   data-bs-trigger="focus"
+                   data-bs-content="Link copied to clipboard"
+                   onclick="navigator.clipboard.writeText('http://localhost:3000/amenities/waypoint-bar-and-bistro')"><i class="bi bi-copy"></i></a>
+              </div>
+
+              <button class="btn btn-primary d-block w-100 my-4" onclick="window.print();" data-bs-dismiss="modal">Print <i class="bi bi-printer-fill"></i></button>
+
+              <div class="d-flex m-5 justify-content-center">
+                <button class="btn btn-outline-primary social-share-btn d-block m-2">
+                  <i class="bi bi-facebook d-block w-100 display-5" style="color: #1977f3"></i>
+                  Facebook
+                </button>
+                <button class="btn btn-outline-primary social-share-btn d-block m-2">
+                  <i class="bi bi-twitter d-block w-100 display-5" style="color: #1da1f2"></i>
+                  Twitter 
+                </button>
+                <button class="btn btn-outline-primary social-share-btn d-block m-2">
+                  <img src="/static/images/Instagram_Glyph_Gradient.svg" 
+                       class="d-block mx-auto" style="width: 65%;"></img>
+                  Instagram 
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary d-block w-50 mx-auto" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container py-2 px-3 mx-auto">
+        <h1 class="text-center">Waypoint Bar and Bistro</h1>
+
+        <div class="d-flex w-100 justify-content-between mb-5 position-relative" id="eventSummaryBar">
+          <div class="mb-2 text-muted d-flex flex-wrap w-25">
+            <div class="flex-fill flex-shrink-0">
+              <i class="bi bi-calendar-event"></i>
+              <span class="mx-2">Monday to Friday</span>
+            </div>
+            <div class="flex-fill flex-shrink-0">
+              <i class="bi bi-clock"></i>
+              <span class="mx-2">9am - 5pm</span>
+            </div>
+          </div>
+
+          <div class="position-absolute start-0 end-0 top-0 pe-none d-flex">
+            <div class="mx-auto">
+                <img style="filter: brightness(0) saturate(100%) invert(74%) sepia(8%) saturate(3298%) hue-rotate(92deg) brightness(92%) contrast(88%);" class="mx-2" width="48" height="48" src="https://img.icons8.com/material-rounded/48/vegan-food.png" alt="vegan-food"/>
+                <img style="filter: brightness(0) saturate(100%) invert(53%) sepia(15%) saturate(1999%) hue-rotate(100deg) brightness(94%) contrast(83%);" class="mx-2" width="50" height="50" src="https://img.icons8.com/ios-filled/50/vegetarian-food.png" alt="vegetarian-food"/>
+                <img style="filter: brightness(0) saturate(100%) invert(28%) sepia(42%) saturate(3481%) hue-rotate(12deg) brightness(97%) contrast(105%);" class="mx-2" width="50" height="50" src="https://img.icons8.com/ios-filled/50/halal-sign.png" alt="halal-sign"/>
+            </div>
+          </div>
+    
+          <div>
+            <button class="btn btn-primary d-block mx-auto" data-bs-toggle="modal" data-bs-target="#shareModal" aria-hidden="true">
+              Share <i class="bi bi-share-fill ms-2"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <section class="my-2">
+          <h2>Overview</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel fugit veniam eum, cum voluptatem porro reiciendis, labore quisquam perspiciatis maxime quibusdam molestiae ipsa mollitia perferendis distinctio quod. Quibusdam, perferendis quo?
+          </p>
+          More Info: <a class="mt-2" href="https://waypointbistro.co.uk/">https://waypointbistro.co.uk/</a>
+        </section>
+
+        <section class="my-2">
+          <h2>Location</h2>
+          <p>
+            Description of where the event will be taking place including the full street address of the location and any additional instructions if the location is hard to find.
+          </p>
+
+          <div class="d-flex w-100 justify-content-center m-3" id="eventMap">
+            <div class="w-75 ratio ratio-4x3">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2545.096847773878!2d-4.132166422959916!3d50.36474857157585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486cecafa1e73a8f%3A0xfb4d6289ad353a32!2sWaypoint%20Bar%20%26%20Bistro!5e0!3m2!1sen!2suk!4v1745083179510!5m2!1sen!2suk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+<%- include('../partials/footer') %>
+<a target="_blank" href="https://icons8.com/icon/8433/vegetarian-food">Vegetarian</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+  </body>
+</html>

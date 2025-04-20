@@ -2,6 +2,7 @@
 <html lang="en" data-bs-theme="light">
   <head>
     <%- include('../partials/head'); %>
+    <script src="/static/js/amenities.js"></script>
   </head>
   <body>
     <%- include('../partials/header', {page: ['amenities']}); %>
@@ -10,7 +11,7 @@
       <div class="container py-2 px-3 mx-auto">
         <h1 class="text-center">Nearby Amenities</h1>
 
-        <form class="row my-5">
+        <form class="row mt-5 mb-2">
           <div class="col-9">
             <div class="input-group">
               <input class="form-control" type="search" placeholder="Filter by event(s)" aria-label="Search">
@@ -30,8 +31,22 @@
           </div>
         </form>
 
-        <div class="mt-5 mb-3">
-          <%- include('../partials/event-card') %>
+        <div class="btn-group">
+          <button id="amenityGridBtn" class="btn btn-primary active"><i class="bi bi-grid-fill"></i> Grid View</button>
+          <button id="amenityListBtn" class="btn btn-primary"><i class="bi bi-list-ul"></i> List View</button>
+        </div>
+
+        <div id="amenityCards" class="mt-5 mb-3 d-flex flex-wrap amenity-card-grid">
+<% for( let index = 0; index < 2; index++ ) { %>
+
+<%- include('../partials/amenity-card/waypoint-bar-and-bistro') %>
+<%- include('../partials/amenity-card/rise-and-grind-plymouth') %>
+<%- include('../partials/amenity-card/cosmic-kitchen') %>
+<%- include('../partials/amenity-card/joe-gin') %>
+<%- include('../partials/amenity-card/face-painting') %>
+<%- include('../partials/amenity-card/fish-n-trips') %>
+
+<% } %>
         </div>
 
         <div class="d-flex">

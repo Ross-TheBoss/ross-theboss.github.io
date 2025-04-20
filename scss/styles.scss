@@ -204,14 +204,53 @@ $bootstrap-icons-font-dir: "../../node_modules/bootstrap-icons/font/fonts";
 
 @import "icon-list";
 
-// Firework Event Card
-.firework-event:hover {
+// Firework Event Card and Amenity Card
+.amenity-card:hover, .firework-event:hover {
     @extend .shadow;
+    z-index: 10;
     transform: scale(1.01);
     transition: box-shadow 0.5s, transform 0.5s;
 }
 
-.firework-event {
+.amenity-card, .firework-event {
     transform: scale(1);
     transition: box-shadow 0.5s, transform 0.5s;
+}
+
+// Amenity card grid vs list
+.amenity-card img {
+    filter: brightness(60%);
+}
+
+.amenity-card-grid {
+    .amenity-card {
+        @extend .w-25;
+
+        .ratio {
+            @extend .w-100;
+        }
+    
+        .amenity-card-overlay {
+            @extend .top-0;
+            @extend .position-absolute;
+            color: white;
+        }
+        
+        .amenity-card-overlay * {
+            background-color: rgba(0.0, 0.0, 0.0, 0.5);
+        }
+    }
+}
+
+.amenity-card-list {
+    @extend .gap-3;
+
+    .amenity-card {
+        @extend .w-100;
+        @extend .d-flex;
+    
+        .ratio {
+            @extend .w-25;
+        }
+    }
 }
