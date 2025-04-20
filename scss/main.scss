@@ -1,3 +1,5 @@
+$primary: #fd6914 !default; // bootstrap orange
+
 // Jumbotron
 .jumbotron {
   position: relative;
@@ -45,4 +47,44 @@
 // Currency formatting
 .GBP::before {
   content: "£";
+}
+
+// From https://getbootstrap.com/docs/5.0/examples/sidebars/
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .4rem .2rem;
+  background-color: transparent;
+  border: 0;
+  text-decoration: underline;
+}
+
+.btn-toggle:hover {
+  // Filter generated with https://angel-rs.github.io/css-color-filter-generator/
+  filter: brightness(0) saturate(100%) invert(55%) sepia(57%) saturate(4394%) hue-rotate(351deg) brightness(99%) contrast(101%);;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 1;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,1%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.archive-sidebar li {
+  padding: 0.25em 0;
+}
+
+.btn-toggle-nav li > a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
 }

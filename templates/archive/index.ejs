@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+<%- include('../partials/head'); %>
+  </head>
+  <body>
+<%- include('../partials/header', {page: ['archive']}); %>
+
+    <div class="container py-2 px-3 mx-auto">
+      <h1 class="text-center display-4">Archive</h1>
+
+      <div class="row mt-5">
+<%- include('../partials/archive-sidebar'); %>
+
+        <main class="col-9 px-5">
+          <h2 class="text-center mb-3">Welcome to the Fireworks Archive!</h2>
+
+          <p>Here you can learn about the idfferent fireworks events series, previous fireworks events, the history of fireworks and pyrotechnices and more!</p>
+
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, sequi quod. Alias, rerum. Aspernatur pariatur sit deserunt. Saepe natus optio, facere dignissimos nostrum perspiciatis in animi dolore neque aperiam doloremque!</p>
+
+          <p>Want to see what it's like to attend a fireworks event, head on over to our video archive of previously livestreamed fireworks events:</p>
+
+          <a href="/archive/livestreams" class="btn btn-primary d-block my-3 mx-5">View Livesteams</a>
+        </main>
+      </div>
+    </div>
+
+<%- include('../partials/footer') %>
+  </body>
+</html>

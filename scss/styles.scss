@@ -204,15 +204,15 @@ $bootstrap-icons-font-dir: "../../node_modules/bootstrap-icons/font/fonts";
 
 @import "icon-list";
 
-// Firework Event Card and Amenity Card
-.amenity-card:hover, .firework-event:hover {
+// Firework Event Card, Amenity Card and Livestream Card
+.amenity-card:hover, .firework-event:hover, .livestream-card:hover {
     @extend .shadow;
     z-index: 10;
     transform: scale(1.01);
     transition: box-shadow 0.5s, transform 0.5s;
 }
 
-.amenity-card, .firework-event {
+.amenity-card, .firework-event, .livestream-card {
     transform: scale(1);
     transition: box-shadow 0.5s, transform 0.5s;
 }
@@ -251,6 +251,27 @@ $bootstrap-icons-font-dir: "../../node_modules/bootstrap-icons/font/fonts";
     
         .ratio {
             @extend .w-25;
+        }
+    }
+}
+
+// Livestream Card
+.livestream-card-grid {
+    .livestream-card {
+        width: 38%;
+
+        .ratio {
+            @extend .w-100;
+        }
+    
+        .livestream-card-overlay {
+            @extend .top-0;
+            @extend .position-absolute;
+            color: white;
+        }
+        
+        .livestream-card-overlay * {
+            background-color: rgba(0.0, 0.0, 0.0, 0.5);
         }
     }
 }

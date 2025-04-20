@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+<%- include('../../partials/head'); %>
+  </head>
+  <body>
+<%- include('../../partials/header', {page: ['archive', 'livestreams']}); %>
+  <main>
+    <div class="container py-2 px-3 mx-auto">
+      <h1 class="text-center">Livestreams</h1>
+      <form class="mt-5 mb-2">
+        <div class="input-group">
+          <input class="form-control" type="search" placeholder="Filter by event(s)" aria-label="Search">
+          <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+        </div>
+      </form>
+
+<% for( let year = 2024; year >= 2022; year-- ) { %>
+      <div class="d-flex w-100 pt-5">
+        <button class="btn btn-outline-primary rounded-end-0 shadow p-0"
+                onclick="document.getElementById('livestreamCards<%=year%>').scrollBy({'top': 0, 'left': -300, 'behavior': 'smooth'})">
+          <i class="bi bi-chevron-compact-left display-6"></i>
+      </button>
+        <div id="livestreamCards<%=year%>" class="d-flex overflow-scroll livestream-card-grid w-100 overflow-y-hidden">
+<% for( let index = 0; index < 4; index++ ) { %>
+<%- include('../../partials/livestream-card/2024-british-fireworks-championships-night-1') %>
+<% } %>
+        </div>
+        <button class="btn btn-outline-primary rounded-start-0 shadow p-0"
+                onclick="document.getElementById('livestreamCards<%=year%>').scrollBy({'top': 0, 'left': 300, 'behavior': 'smooth'})">
+          <i class="bi bi-chevron-compact-right display-6"></i>
+        </button>
+      </div>
+
+      <div class="d-flex w-100 flex-row justify-content-center align-items-center">
+        <hr class="w-100">
+        <span class="text-center display-6"><%= year %></span>
+        <hr class="w-100">
+      </div>
+<% } %>
+
+    </div>
+  </main>
+
+<%- include('../../partials/footer') %>
+  </body>
+</html>
