@@ -1,9 +1,5 @@
 .DS_Store
 /node_modules/
-/static/css/
 /dist/
 
-*.html
-/events/
-/amenities/
-/archive/
+/public/
