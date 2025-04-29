@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-md bg-light sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-          <img alt="Fireworks Logo" src="/static/images/fireworks-.png" class="ratio ratio-1x1" style="width: 2em;" />
+        <a class="navbar-brand" href="">
+          <img alt="Fireworks Logo" src="static/images/fireworks-.png" class="ratio ratio-1x1" style="width: 2em;" />
            Plymouth Fireworks
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,16 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav nav-pills">
             <li class="nav-item mx-2">
-              <a class="nav-link px-4 <%if(page[0]==='home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href="/">Home</a>
+              <a class="nav-link px-4 <%if(page[0]==='home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href=".">Home</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link px-4 <%if(page[0]==='events'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/events">Events</a>
+              <a class="nav-link px-4 <%if(page[0]==='events'){%>active<%}else{%>bg-primary-subtle<%}%>" href="events">Events</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link px-4 <%if(page[0]==='amenities'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/amenities">Amenities</a>
+              <a class="nav-link px-4 <%if(page[0]==='amenities'){%>active<%}else{%>bg-primary-subtle<%}%>" href="amenities">Amenities</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link px-4 <%if(page[0]==='archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="/archive">Archive</a>
+              <a class="nav-link px-4 <%if(page[0]==='archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="archive">Archive</a>
             </li>
           </ul>
         </div>
@@ -33,7 +33,7 @@
             <span><%=element%></span>
           </li><%}else{%>
           <li class="breadcrumb-item" style="text-transform: capitalize;">
-            <a href="<%= "/" + page.slice(0, index+1).map((s) => s.replaceAll(" ", "-")).join("/") %>"><%=element%></a>
+            <a href="<%= page.slice(0, index+1).map((s) => s.replaceAll(" ", "-")).join("/") %>"><%=element%></a>
           </li>
             <%}%><% }) %>
         </ol>
