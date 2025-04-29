@@ -9,18 +9,26 @@
     "startCommand": "npm start"
   },
   "scripts": {
-    "build": "npm run clean && npm run css",
+    "build": "npm-run-all prepare compile",
+
+    "prepare": "npm-run-all clean set-base",
     "clean": "rm -rf public/",
+    "set-base": "node set-base.js",
+
+    "compile": "npm-run-all css ejs-compile static-copy node-modules-copy",
+ 
     "ejs-compile": "ejs-cli -b templates \"**/*.ejs\" --exclude \"partials\" --out public/",
-    "node-modules-copy": "cp -r node_modules/. public/node_modules",
     "static-copy": "cp -r static/. public/static",
+    "node-modules-copy": "cp -r node_modules/. public/node_modules",
+
+    "css": "npm-run-all css-compile css-prefix",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules scss/:public/static/css/",
     "css-lint": "stylelint scss/",
     "css-prefix": "postcss --replace public/static/css/styles.css --use autoprefixer --map",
-    "css": "npm-run-all css-compile css-prefix ejs-compile static-copy node-modules-copy",
+
+    "start": "npm-run-all prepare --parallel server watch",
     "server": "sirv public --dev --no-clear --port 3000",
-    "start": "npm run clean && npm-run-all --parallel watch server",
-    "watch": "nodemon -e ejs,scss -x \"npm run css\"",
+    "watch": "nodemon -e ejs,scss -x npm run compile",
     "test": "npm-run-all css-lint css"
   },
   "dependencies": {

@@ -1,7 +1,3 @@
-# Sample workflow for building and deploying a Gatsby site to GitHub Pages
-#
-# To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
-#
 name: Deploy EJS site to Pages
 
 on:
@@ -61,7 +57,7 @@ jobs:
       - name: Build with EJS
         env:
           PREFIX_PATHS: 'true'
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
+        run: BASEURL=https://rosswatts.co.uk/Hi-Fi-Prototype/ ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
