@@ -95,7 +95,7 @@ $success: #7952b3;
 // Import Bootstrap Icons w/ custom path to fonts folder
 //
 
-$bootstrap-icons-font-dir: "../../node_modules/bootstrap-icons/font/fonts";
+$bootstrap-icons-font-dir: "../fonts";
 @import "bootstrap-icons/font/bootstrap-icons";
 
 //

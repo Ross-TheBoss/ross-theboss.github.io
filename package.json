@@ -15,11 +15,10 @@
     "clean": "rm -rf public/",
     "set-base": "node set-base.js",
 
-    "compile": "npm-run-all css ejs-compile static-copy node-modules-copy",
+    "compile": "npm-run-all css ejs-compile static-copy",
  
     "ejs-compile": "ejs-cli -b templates \"**/*.ejs\" --exclude \"partials\" --out public/",
     "static-copy": "cp -r static/. public/static",
-    "node-modules-copy": "cp -r node_modules/. public/node_modules",
 
     "css": "npm-run-all css-compile css-prefix",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules scss/:public/static/css/",
