@@ -2,6 +2,7 @@
 <html lang="en" data-bs-theme="light">
   <head>
     <%- include('../partials/head'); %>
+    <script src="static/js/events.js"></script>
   </head>
   <body>
     <%- include('../partials/header', {page: ['events']}); %>
@@ -13,37 +14,32 @@
           <a href="events/calendar" class="btn btn-primary d-block mx-auto"><i class="bi bi-calendar-fill"></i> View Calendar</a>
         </div>
 
-        <form class="row my-5">
+        <form class="row my-5" name="search">
           <div class="col-9">
             <div class="input-group">
-              <input class="form-control" type="search" placeholder="Search for an event..." aria-label="Search">
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+              <input class="form-control" id="event-search"  name="q" type="search" placeholder="Search for an event..." aria-label="Search">
+              <button class="btn btn-primary" id="event-search-btn" type="submit"><i class="bi bi-search"></i></button>
             </div>
           </div>
 
           <div class="col-3">
             <div class="input-group">
               <span class="input-group-text">Sort By:</span>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Date (Earliest First)</option>
-                <option value="1">Date (Latest First)</option>
-                <option value="2">Alphabetical (A-Z)</option>
-                <option value="3">Alphabetical (Z-A)</option>
+              <select class="form-select" id="event-sort-order" name="sort" aria-label="Sort by selection">
+                <option value="earliest">Date (Earliest First)</option>
+                <option value="latest">Date (Latest First)</option>
+                <option value="a-z">Alphabetical (A-Z)</option>
+                <option value="z-a">Alphabetical (Z-A)</option>
               </select>
             </div>
           </div>
         </form>
 
-        <div class="mt-5 mb-3">
-<%- include('../partials/event-card/bonfire-night-2025') %>
-<%- include('../partials/event-card/british-fireworks-championships-2025') %>
-<%- include('../partials/event-card/bonfire-night-2025') %>
-<%- include('../partials/event-card/british-fireworks-championships-2025') %>
-<%- include('../partials/event-card/bonfire-night-2025') %>
+        <div class="mt-5 mb-3" id="event-list">
         </div>
 
         <div class="d-flex">
-          <button class="btn btn-outline-primary rounded-5 mx-auto">
+          <button class="btn btn-outline-primary rounded-5 mx-auto" id="view-more">
             View More <i class="bi bi-arrow-down"></i>
           </button>
         </div>

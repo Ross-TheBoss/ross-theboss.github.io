@@ -1,5 +1,13 @@
  <!-- Event Card -->
- <div class="firework-event card d-flex flex-row my-2" style="height: 16em; width: 100%;">
+<div class="firework-event card d-flex flex-row my-2" 
+      style="height: 16em; width: 100%;"
+      data-title="<%= title %>"
+      data-description="<%= description %>"
+      data-date="<%= date %>"
+      data-time="<%= time %>"
+      data-slug="<%= slug %>"
+      data-img-src="<%= img_src %>"
+      data-img-alt="<%= img_alt %>">
   <div class="card-body" style="max-width: 80%;">
     <h3 class="card-title"><%= title %></h3>
     <div class="card-subtitle mb-2 text-muted d-flex flex-wrap w-50">

@@ -88,3 +88,8 @@ $primary: #fd6914 !default; // bootstrap orange
   margin-top: .125rem;
   margin-left: 1.25rem;
 }
+
+.clickable-firework-event {
+  text-decoration: none;
+  color: var(--bs-card-color);
+}
