@@ -57,7 +57,7 @@ jobs:
       - name: Build with EJS
         env:
           PREFIX_PATHS: 'true'
-        run: BASEURL=https://rosswatts.co.uk/Hi-Fi-Prototype/ ${{ steps.detect-package-manager.outputs.manager }} run build
+        run: BASEURL=https://ross-theboss.github.io/ ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
