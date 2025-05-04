@@ -1,0 +1,43 @@
+      <script src="static/js/share.js"></script>
+      <div class="modal" id="shareModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h5 class="modal-title text-white">Share</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+            <a class="form-control" id="share-link" href="#">...</a>
+            <a class="btn btn-primary" 
+              id="copy-share-link"
+              type="button"
+              role="button"
+              tabindex="0"
+              data-bs-toggle="popover"
+              data-bs-trigger="focus"
+              data-bs-content="Link copied to clipboard"><i class="bi bi-copy"></i></a>
+            </div>
+
+            <button class="btn btn-primary d-block w-100 my-4" onclick="window.print();" data-bs-dismiss="modal">Print <i class="bi bi-printer-fill"></i></button>
+
+            <div class="d-flex m-5 justify-content-center">
+              <a class="btn btn-outline-primary social-share-btn d-block m-2" id="facebook-link"
+                target="_blank" href="...">
+                <i class="bi bi-facebook d-block w-100 display-5" style="color: #1977f3"></i>
+                Facebook
+              </a>
+
+              <a class="btn btn-outline-primary social-share-btn d-block m-2" id="twitter-link"
+                target="_blank" href="...">
+                <i class="bi bi-twitter d-block w-100 display-5" style="color: #1da1f2"></i>
+                Twitter 
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary d-block w-50 mx-auto" data-bs-dismiss="modal">Cancel</button>
+          </div>
+          </div>
+        </div>
+      </div>
