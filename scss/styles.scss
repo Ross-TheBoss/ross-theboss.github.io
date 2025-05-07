@@ -53,7 +53,7 @@ $success: #7952b3;
 @import "bootstrap/scss/reboot";
 
 @import "bootstrap/scss/type";
-// @import "bootstrap/scss/images";
+@import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
 @import "bootstrap/scss/tables";
@@ -101,6 +101,21 @@ $bootstrap-icons-font-dir: "../fonts";
 //
 // Custom styles
 //
+
+// Return to top button
+
+// Return to Top button
+@include media-breakpoint-down(lg){
+    .return-to-top-text {
+        display: none;
+    }
+}
+
+@include media-breakpoint-up(lg){
+    .return-to-top {
+        margin-bottom: 6em !important;
+    }
+}
 
 // Breadcrumbs
 
@@ -217,6 +232,31 @@ $bootstrap-icons-font-dir: "../fonts";
     transition: box-shadow 0.5s, transform 0.5s;
 }
 
+// Firework Event
+
+.firework-event-image {
+    width: 20em; 
+    min-height: 16em; 
+    height: 16em;
+
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+
+    @extend .rounded-end;
+}
+
+@include media-breakpoint-down(md){
+    .firework-event-image {
+        width: 100%;
+
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
+        // .rounded-top
+        border-top-left-radius: var(--bs-border-radius) !important;
+        border-top-right-radius: var(--bs-border-radius) !important;
+    }
+}
+
 // Amenity card grid vs list
 .amenity-card img {
     filter: brightness(60%);
@@ -224,7 +264,7 @@ $bootstrap-icons-font-dir: "../fonts";
 
 .amenity-card-grid {
     .amenity-card {
-        @extend .w-25;
+        // @extend .w-25;
 
         .ratio {
             @extend .w-100;
@@ -246,10 +286,12 @@ $bootstrap-icons-font-dir: "../fonts";
     @extend .gap-3;
 
     .amenity-card {
+        min-height: 10em;
         @extend .w-100;
         @extend .d-flex;
     
         .ratio {
+            min-width: 10em;
             @extend .w-25;
         }
     }
@@ -272,6 +314,30 @@ $bootstrap-icons-font-dir: "../fonts";
         
         .livestream-card-overlay * {
             background-color: rgba(0.0, 0.0, 0.0, 0.5);
+        }
+    }
+}
+
+@include media-breakpoint-down(lg){
+    .livestream-card-grid {
+        .livestream-card {
+            width: 45%;
+
+            .livestream-card-overlay *, .livestream-card-btn * {
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm){
+    .livestream-card-grid {
+        .livestream-card {
+            width: 48%;
+
+            .livestream-card-overlay *, .livestream-card-btn * {
+                font-size: 0.75em;
+            }
         }
     }
 }

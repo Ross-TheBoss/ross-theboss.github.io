@@ -12,8 +12,8 @@
       <div class="container py-2 px-3 mx-auto">
         <h1 class="text-center">Waypoint Bar and Bistro</h1>
 
-        <div class="d-flex w-100 justify-content-between mb-5 position-relative" id="eventSummaryBar">
-          <div class="mb-2 text-muted d-flex flex-wrap w-25">
+        <div class="w-100 mb-5 row justify-content-between g-3 g-md-0" id="eventSummaryBar">
+          <div class="mb-2 text-muted d-flex flex-wrap w-25 col-4 order-1 order-md-0">
             <div class="flex-fill flex-shrink-0">
               <i class="bi bi-calendar-event"></i>
               <span class="mx-2">Monday to Friday</span>
@@ -24,20 +24,19 @@
             </div>
           </div>
 
-          <div class="position-absolute start-0 end-0 top-0 pe-none d-flex">
+          <div class="pe-none d-flex col-12 col-md-5 order-0 order-md-1">
             <div class="mx-auto">
                 <img style="filter: brightness(0) saturate(100%) invert(74%) sepia(8%) saturate(3298%) hue-rotate(92deg) brightness(92%) contrast(88%);" class="mx-2" width="48" height="48" src="https://img.icons8.com/material-rounded/48/vegan-food.png" alt="vegan-food"/>
                 <img style="filter: brightness(0) saturate(100%) invert(53%) sepia(15%) saturate(1999%) hue-rotate(100deg) brightness(94%) contrast(83%);" class="mx-2" width="50" height="50" src="https://img.icons8.com/ios-filled/50/vegetarian-food.png" alt="vegetarian-food"/>
                 <img style="filter: brightness(0) saturate(100%) invert(28%) sepia(42%) saturate(3481%) hue-rotate(12deg) brightness(97%) contrast(105%);" class="mx-2" width="50" height="50" src="https://img.icons8.com/ios-filled/50/halal-sign.png" alt="halal-sign"/>
             </div>
           </div>
-    
-          <div>
-            <button class="btn btn-primary d-block mx-auto" data-bs-toggle="modal" data-bs-target="#shareModal" aria-hidden="true">
+
+          <div class="order-2" style="width: fit-content;">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shareModal" aria-hidden="true">
               Share <i class="bi bi-share-fill ms-2"></i>
             </button>
           </div>
-
         </div>
 
         <section class="my-2">

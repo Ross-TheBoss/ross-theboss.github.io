@@ -11,15 +11,15 @@
       <div class="container py-2 px-3 mx-auto">
         <h1 class="text-center">Nearby Amenities</h1>
 
-        <form class="row mt-5 mb-2">
-          <div class="col-9">
+        <form class="row g-2 mt-5 mb-2">
+          <div class="col-12 col-lg-8 col-xl-9">
             <div class="input-group">
               <input class="form-control" type="search" placeholder="Filter by event(s)" aria-label="Search">
               <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-12 col-lg-4 col-xl-3">
             <div class="input-group">
               <span class="input-group-text">Sort By:</span>
               <select class="form-select" aria-label="Default select example">
@@ -36,7 +36,7 @@
           <button id="amenityListBtn" class="btn btn-primary"><i class="bi bi-list-ul"></i> List View</button>
         </div>
 
-        <div id="amenityCards" class="mt-5 mb-3 d-flex flex-wrap amenity-card-grid">
+        <div id="amenityCards" class="mt-5 mb-3 d-flex flex-wrap amenity-card-grid row-cols-2 row-cols-md-3 row-cols-lg-4">
 
 <%- include('../partials/amenity-card/waypoint-bar-and-bistro') %>
 <%- include('../partials/amenity-card/rise-and-grind-plymouth') %>

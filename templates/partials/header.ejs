@@ -9,16 +9,16 @@
         </button>  
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav nav-pills">
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 my-1">
               <a class="nav-link px-4 <%if(page[0]==='home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href=".">Home</a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 my-1">
               <a class="nav-link px-4 <%if(page[0]==='events'){%>active<%}else{%>bg-primary-subtle<%}%>" href="events">Events</a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 my-1">
               <a class="nav-link px-4 <%if(page[0]==='amenities'){%>active<%}else{%>bg-primary-subtle<%}%>" href="amenities">Amenities</a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 my-1">
               <a class="nav-link px-4 <%if(page[0]==='archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="archive">Archive</a>
             </li>
           </ul>
@@ -27,7 +27,7 @@
     </nav>
     <%if(page[0]!=='home'){
     %><nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-      <div class="container">
+      <div class="container ps-1 ps-sm-2">
         <ol class="breadcrumb my-2"><% page.forEach((element, index) => { %><%if(index===page.length-1){%>
           <li class="breadcrumb-item active" style="text-transform: capitalize;" aria-current="page">
             <span><%=element%></span>

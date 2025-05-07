@@ -84,42 +84,49 @@ const events = [
 
 // Return the HTML used to encapsulate a fireworks event. 
 const getFireworkEvent = ({title, description, date, time, slug, img_src, img_alt}) => 
-    `<a class="clickable-firework-event" href="events/${slug}">
-<div class="firework-event card d-flex flex-row my-2" 
-      style="height: 16em; width: 100%;"
-      data-title="${title}"
-      data-description="${description}"
-      data-date="${date}"
-      data-time="${time}"
-      data-slug="${slug}"
-      data-img-src="${img_src}"
-      data-img-alt="${img_alt}">
-  <div class="card-body d-flex flex-column justify-content-between" style="min-width: 80%;">
-    <div>
-        <h3 class="card-title">${title}</h3>
-        <div class="card-subtitle mb-2 text-muted d-flex flex-wrap w-50">
-        <div class="flex-fill flex-shrink-0">
-            <i class="bi bi-calendar-event"></i>
-            <span class="mx-2">${date.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</span>
-        </div>
-        <div class="flex-fill flex-shrink-0">
-            <i class="bi bi-clock"></i>
-            <span class="mx-2">${time}</span>
-        </div>
-        </div>
-        <p class="card-text d-inline" style="max-width: 100%;">${description}</p>
-    </div>
-    <div class="ms-auto me-0" style="width: fit-content;">
-      <button class="btn btn-primary d-block">More Details</button>
-    </div>
-  </div>
+    `
+<a class="clickable-firework-event" href="events/${slug}">
+    <div class="firework-event card my-2" 
+        style="width: 100%;"
+        data-title="${title}"
+        data-description="${description}"
+        data-date="${date}"
+        data-time="${time}"
+        data-slug="${slug}"
+        data-img-src="${img_src}"
+        data-img-alt="${img_alt}">
+        <div class="row g-0 h-100">
+            <div class="col-12 col-md overflow-hidden order-1 order-md-0" style="max-height: 16em; height: 16em;">
+                <div class="card-body d-flex flex-column justify-content-between h-100">
+                    <div class="overflow-hidden mb-3">
+                        <h3 class="card-title">${title}</h3>
+                        <div class="card-subtitle mb-2 text-muted d-flex flex-wrap w-50">
+                            <div class="flex-fill flex-shrink-0">
+                                <i class="bi bi-calendar-event"></i>
+                                <span class="mx-2">${date.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</span>
+                            </div>
+                            <div class="flex-fill flex-shrink-0">
+                                <i class="bi bi-clock"></i>
+                                <span class="mx-2">${time}</span>
+                            </div>
+                        </div>
+                        <div class="h-100">
+                            <p class="card-text">${description}</p>
+                        </div>
+                    </div>
 
-  <div class="ratio ratio-16x9">
-    <img class="bd-placeholder-img" role="img" aria-label="${img_alt}" alt="${img_alt}" 
-         src="${img_src}"
-         width="100%" height="100%"/>
-  </div>
-</div>
+                    <div class="ms-auto me-0" style="width: fit-content;">
+                        <button class="btn btn-primary d-block">More Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="firework-event-image overflow-hidden position-relative order-0 order-md-1">
+                <img class="h-100 position-absolute start-50 top-50 translate-middle" role="img" aria-label="${img_alt}" alt="${img_alt}" 
+                    src="${img_src}" />
+            </div>
+        </div>
+    </div>
 </a>
 `;
 
