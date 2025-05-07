@@ -117,6 +117,15 @@ $bootstrap-icons-font-dir: "../fonts";
     }
 }
 
+// Navbar Dark Mode
+#navbar {
+    @extend .bg-light;
+}
+
+[data-bs-theme=dark] #navbar {
+    @extend .bg-dark-subtle;
+}
+
 // Breadcrumbs
 
 .breadcrumb-item {

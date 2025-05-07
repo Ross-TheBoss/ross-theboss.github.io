@@ -97,6 +97,7 @@ let checkDigit = (event) => {
            ((key >= 96 && key <= 105)) || // Numpad digits
            ((key == 37) || (key == 39)) || // Left and Right arrows
            (key == 8) || // Backspace key
+           (key == 9) || // Tab key
            (event.ctrlKey||event.metaKey); // Ctrl or Meta Modifier Key
 }
 

@@ -1,4 +1,5 @@
-    <nav class="navbar navbar-expand-md bg-light sticky-top">
+    <script src="static/js/dark-mode.js"></script>
+    <nav class="navbar navbar-expand-md sticky-top" id="navbar">
       <div class="container-fluid">
         <a class="navbar-brand" href="">
           <img alt="Fireworks Logo" src="static/images/fireworks-.png" class="ratio ratio-1x1" style="width: 2em;" />
@@ -7,7 +8,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>  
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul class="navbar-nav nav-pills">
             <li class="nav-item mx-2 my-1">
               <a class="nav-link px-4 <%if(page[0]==='home'){%>active<%}else{%>bg-primary-subtle<%}%>" aria-current="page" href=".">Home</a>
@@ -20,6 +21,39 @@
             </li>
             <li class="nav-item mx-2 my-1">
               <a class="nav-link px-4 <%if(page[0]==='archive'){%>active<%}else{%>bg-primary-subtle<%}%>" href="archive">Archive</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav nav-pills">
+            <!-- Code from getbootstrap.com -->
+            <li class="nav-item dropdown"> 
+              <button class="nav-link bg-primary-subtle px-2 py-2 mx-2 dropdown-toggle d-flex align-items-center ms-auto" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (auto)"> 
+                <i class="bi bi-circle-half theme-icon-active"></i>
+                <span class="d-md-none ms-2" id="bd-theme-text">Toggle theme</span>
+              </button> 
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text"> 
+                <li> 
+                  <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false"> 
+                    <i class="bi bi-sun-fill"></i>
+                    Light
+                    <svg class="bi ms-auto d-none" aria-hidden="true"><use href="#check2"></use></svg> 
+                  </button> 
+                </li> 
+                <li> 
+                  <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false"> 
+                    <i class="bi bi-moon-stars-fill"></i>
+                    Dark
+                    <svg class="bi ms-auto d-none" aria-hidden="true"><use href="#check2"></use></svg> 
+                  </button> 
+                </li> 
+                <li> 
+                  <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true"> 
+                    <i class="bi bi-circle-half"></i>
+                    Auto
+                    <svg class="bi ms-auto d-none" aria-hidden="true"><use href="#check2"></use></svg> 
+                  </button> 
+                </li>
+              </ul> 
             </li>
           </ul>
         </div>
