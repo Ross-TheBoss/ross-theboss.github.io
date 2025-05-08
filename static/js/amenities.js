@@ -15,7 +15,7 @@ const facePaintingAmenity = {
 
 const fishNTripsAmenity = {
     title: 'Fish n Trips',
-    image: 'http://www.boatfishingplymouth.com/images/gone-fishing.jpg',
+    image: 'static/images/gone-fishing.jpg',
     slug: '../404'
 };
 
