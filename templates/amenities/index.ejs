@@ -2,6 +2,12 @@
 <html lang="en" data-bs-theme="light">
   <head>
     <%- include('../partials/head', {title: 'Amenities'}); %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap5-tags@1.7.13/tags-pure.min.css">
+    <script type="module">
+      import Tags from "https://cdn.jsdelivr.net/npm/bootstrap5-tags@1.7.13/tags.min.js";
+
+      Tags.init();
+    </script>
     <script src="static/js/amenities.js"></script>
   </head>
   <body>
@@ -13,8 +19,26 @@
 
         <form class="row g-2 mt-5 mb-2">
           <div class="col-12 col-lg-8 col-xl-9">
-            <div class="input-group">
-              <input class="form-control" id="amenity-search" name="q" type="search" placeholder="Filter by event(s)" aria-label="Search">
+            <div class="input-group flex-nowrap">
+              <div class="flex-fill tags-search-container">
+                <select class="form-control" id="amenity-search" 
+                name="q" type="search" placeholder="Filter by event(s)" aria-label="Search" 
+                multiple>
+                  <option value="bonfire-night-2025">Bonfire Night 2025</option>
+                  <option value="bonfire-and-fireworks-night-at-port-eliot-house-and-gardens">
+                    Bonfire and Fireworks Night at Port Eliot House and Gardens
+                  </option>
+                  <option value="big-bonfire-night-and-firework-display-at-dartington-hall">
+                    Big Bonfire Night and Firework Display at Dartington Hall
+                  </option>
+                  <option value="lions-club-of-tavistock-fireworks-display">
+                    Lions Club of Tavistock Fireworks Display
+                  </option>
+                  <option value="british-fireworks-championships">
+                    British Fireworks Championships
+                  </option>
+                </select>
+              </div>
               <button class="btn btn-primary" id="amenity-search-btn" type="submit"><i class="bi bi-search"></i></button>
             </div>
           </div>
