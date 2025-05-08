@@ -3,38 +3,44 @@ var sortedAmenities = [];
 
 const cosmicKitchenAmenity = {
     title: 'Cosmic Kitchen',
-    image: 'https://i2-prod.plymouthherald.co.uk/incoming/article5687981.ece/ALTERNATES/s615b/1_EBP_DCM_220721COSMICKITCHEN__001JPG.jpg',
-    slug: '../404'
+    slug: '../404',
+    img_src: 'https://i2-prod.plymouthherald.co.uk/incoming/article5687981.ece/ALTERNATES/s615b/1_EBP_DCM_220721COSMICKITCHEN__001JPG.jpg',
+    img_alt: 'Inside Cosmic Kitchen.'
 };
 
 const facePaintingAmenity = {
     title: 'Face Painting',
-    image: 'https://i.pinimg.com/originals/9f/0b/f9/9f0bf9829d017fe5efca1cbc41960477.jpg',
-    slug: '../404'
+    slug: '../404',
+    img_src: 'https://i.pinimg.com/originals/9f/0b/f9/9f0bf9829d017fe5efca1cbc41960477.jpg',
+    img_alt: 'A woman\'s face painted with a flowery pattern.'
 };
 
 const fishNTripsAmenity = {
     title: 'Fish n Trips',
-    image: 'static/images/gone-fishing.jpg',
-    slug: '../404'
+    slug: '../404',
+    img_src: 'static/images/gone-fishing.jpg',
+    img_alt: 'A rustic sign hanging from a door with \'gone fishing\' on it.'
 };
 
 const joeGinAmenity = {
     title: 'Plymouth Gin',
-    image: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/4055cbe4-04f1-460c-b838-59f23236911f.__CR0,0,1500,1500_PT0_SX300_V1___.jpg',
-    slug: '../404'
+    slug: '../404',
+    img_src: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/4055cbe4-04f1-460c-b838-59f23236911f.__CR0,0,1500,1500_PT0_SX300_V1___.jpg',
+    img_alt: 'A bottle of plymouth gin alongside 2 wine glasses full of gin, lemon and ice.'
 };
 
 const riseAndGrindPlymouthAmenity = {
     title: 'Rise and Grind Plymouth',
-    image: 'https://i2-prod.plymouthherald.co.uk/incoming/article7131490.ece/ALTERNATES/s1200/0_AE_DCM_26_05_2022_risegrind_03jpeg.jpg',
-    slug: '../404'
+    slug: '../404',
+    img_src: 'https://i2-prod.plymouthherald.co.uk/incoming/article7131490.ece/ALTERNATES/s1200/0_AE_DCM_26_05_2022_risegrind_03jpeg.jpg',
+    img_alt: 'The double door grand entrance to the rise and grind coffee shop.'
 };
 
 const waypointBarAndBistroAmenity = {
     title: 'Waypoint Bar and Bistro',
-    image: 'https://img.restaurantguru.com/w550/h367/r8d0-Waypoint-Bar-and-Bistro-interior.jpg',
-    slug: 'waypoint-bar-and-bistro'
+    slug: 'waypoint-bar-and-bistro',
+    img_src: 'https://img.restaurantguru.com/w550/h367/r8d0-Waypoint-Bar-and-Bistro-interior.jpg',
+    img_alt: 'A view through glass painted with the waypoint compass logo into the dining area.'
 };
 
 const amenities = [
@@ -42,10 +48,10 @@ const amenities = [
     joeGinAmenity, riseAndGrindPlymouthAmenity, waypointBarAndBistroAmenity
 ];
 
-const getAmenity = ({title, image, slug}) => `
+const getAmenity = ({title, slug, img_src, img_alt}) => `
 <div class="flex-shrink-0 amenity-card border border-2 border-primary clickable-amenity-card">
     <div class="ratio ratio-4x3">
-        <img class="bd-placeholder-img card-img-top object-fit-cover" src="${image}" width="100%" height="100%"></img>
+        <img class="object-fit-cover" src="${img_src}" alt="${img_alt}" width="100%" height="100%"></img>
     </div>
 
     <div class="z-1 pe-none fw-bold d-flex amenity-card-overlay">

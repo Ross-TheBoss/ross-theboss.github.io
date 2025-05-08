@@ -7,7 +7,11 @@
 <%- include('partials/header', {page: ['home']}); %>
     <main>
       <div class="fluid-container mx-auto jumbotron">
-        <video class="w-100" autoplay muted loop>
+        <video class="w-100" 
+               alt="A video of fireworks exploding above Plymouth harbour on Plymouth Bonfire Night 2023."
+               aria-label="A video of fireworks exploding above Plymouth harbour on Plymouth Bonfire Night 2023." 
+               tabindex="-1"
+               autoplay muted loop disabled>
           <source src="static/videos/Plymouth Bonfire Night 2023.webm" type="video/webm">
         </video>
         <div class="jumbotron-overlay">
