@@ -14,18 +14,18 @@
         <form class="row g-2 mt-5 mb-2">
           <div class="col-12 col-lg-8 col-xl-9">
             <div class="input-group">
-              <input class="form-control" type="search" placeholder="Filter by event(s)" aria-label="Search">
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+              <input class="form-control" id="amenity-search" name="q" type="search" placeholder="Filter by event(s)" aria-label="Search">
+              <button class="btn btn-primary" id="amenity-search-btn" type="submit"><i class="bi bi-search"></i></button>
             </div>
           </div>
 
           <div class="col-12 col-lg-4 col-xl-3">
             <div class="input-group">
               <span class="input-group-text">Sort By:</span>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Distance (Closest)</option>
-                <option value="1">Price (Cheapest)</option>
-                <option value="2">Travel Time (Shortest)</option>
+              <select class="form-select" id="amenity-sort-order" name="sort" aria-label="Sort By Selection">
+                <option value="closest">Distance (Closest)</option>
+                <option value="cheapest">Price (Cheapest)</option>
+                <option value="fastest">Travel Time (Shortest)</option>
               </select>
             </div>
           </div>
