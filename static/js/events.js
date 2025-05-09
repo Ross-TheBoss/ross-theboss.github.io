@@ -1,5 +1,5 @@
-let eventsShownPerPage = 3;
-var sortedEvents = [];
+let amenitiesShownPerPage = 3;
+var sortedAmenities = [];
 
 const bonfireNightEvent = {
     title: 'Bonfire Night',
@@ -44,7 +44,7 @@ const tavistockLionsClubFireworksEvent = {
 
 // https://www.eventbrite.co.uk/e/port-eliot-bonfire-fireworks-night-tickets-939538022517
 const PortEliotHouseFireworksEvent = {
-    title: 'Bonfire and Fireworks Night at Port Eliot House & Gardens',
+    title: 'Port Eliot Bonfire and Fireworks Night',
     date: new Date(2025, 10, 2),
     time: '4pm - 10pm',
     description: `Huge Bonfire. Amazing Fireworks. Great Catering. Bouncy Castle. Bars and Music.`,
@@ -55,7 +55,7 @@ const PortEliotHouseFireworksEvent = {
 
 // https://www.chooseyourevent.co.uk/event/287278/big-bonfire-night-and-firework-display-at-dartington-hall
 const bigBonfireNightAndFireworkDisplayEvent = {
-    title: 'Big Bonfire Night and Firework Display At Dartington Hall',
+    title: 'Dartington Hall Big Bonfire Night',
     date: new Date(2025, 10, 2),
     time: '5pm - 9pm',
     description: `
@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     eventSearch.value = query;
     eventSort.value = sort;
+    eventSort.onchange = () => document.forms.namedItem("search").submit();
 
     // Determine which sort function to use based on the sort parameter.
     let sortFn;
@@ -162,29 +163,29 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
     }
 
-    sortedEvents = events.filter((event) => event.title.toLocaleLowerCase().match(query.toLocaleLowerCase()));
-    sortedEvents.sort(sortFn);
+    sortedAmenities = events.filter((event) => event.title.toLocaleLowerCase().match(query.toLocaleLowerCase()));
+    sortedAmenities.sort(sortFn);
 
-    if (sortedEvents.length <= eventsShownPerPage){
-        viewMore.style.display = 'none';
+    if (sortedAmenities.length > amenitiesShownPerPage){
+        viewMore.classList.remove('d-none');
     }
 
     viewMore.onclick = () => {
-        showEvents(eventsShownPerPage, eventsShownPerPage+5);
-        eventsShownPerPage += 5;
+        showEvents(amenitiesShownPerPage, amenitiesShownPerPage+5);
+        amenitiesShownPerPage += 5;
 
-        if (sortedEvents.length <= eventsShownPerPage){
-            viewMore.style.display = 'none';
+        if (sortedAmenities.length <= amenitiesShownPerPage){
+            viewMore.classList.add('d-none');
         }
     }
 
-    showEvents(0, eventsShownPerPage);
+    showEvents(0, amenitiesShownPerPage);
 });
 
 let showEvents = (start, stop) => {
     const eventList = document.getElementById("event-list");
 
-    sortedEvents.slice(start, stop).forEach((event) => {
+    sortedAmenities.slice(start, stop).forEach((event) => {
         eventList.insertAdjacentHTML('beforeend', getFireworkEvent(event));
     });
 }

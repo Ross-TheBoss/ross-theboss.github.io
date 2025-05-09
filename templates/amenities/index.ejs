@@ -20,7 +20,7 @@
       <div class="container py-2 px-3 mx-auto">
         <h1 class="text-center">Nearby Amenities</h1>
 
-        <form class="row g-2 mt-5 mb-2">
+        <form class="row g-2 mt-5 mb-2" name="search">
           <div class="col-12 col-lg-8 col-xl-9">
             <div class="input-group flex-nowrap">
               <div class="flex-fill tags-search-container">
@@ -28,18 +28,18 @@
                 name="q" type="search" placeholder="Filter by event(s)" aria-label="Search" 
                 data-allow-clear="true" data-clear-end="true"
                 multiple>
-                  <option value="bonfire-night-2025">Bonfire Night 2025</option>
-                  <option value="bonfire-and-fireworks-night-at-port-eliot-house-and-gardens">
-                    Port Eliot Bonfire and Fireworks Night
+                  <option value="bonfire-night">Bonfire Night</option>
+                  <option value="british-fireworks-championships">
+                    British Fireworks Championships
                   </option>
-                  <option value="big-bonfire-night-and-firework-display-at-dartington-hall">
+                  <option value="dartington-hall-big-bonfire-night">
                     Dartington Hall Big Bonfire Night
                   </option>
                   <option value="lions-club-of-tavistock-fireworks-display">
                     Lions Club of Tavistock Fireworks Display
                   </option>
-                  <option value="british-fireworks-championships">
-                    British Fireworks Championships
+                  <option value="port-eliot-bonfire-and-fireworks-night">
+                    Port Eliot Bonfire and Fireworks Night
                   </option>
                 </select>
               </div>
@@ -60,7 +60,7 @@
         </form>
 
         <div class="btn-group">
-          <button id="amenityGridBtn" class="btn btn-primary active"><i class="bi bi-grid-fill"></i> Grid View</button>
+          <button id="amenityGridBtn" class="btn btn-primary"><i class="bi bi-grid-fill"></i> Grid View</button>
           <button id="amenityListBtn" class="btn btn-primary"><i class="bi bi-list-ul"></i> List View</button>
         </div>
 
@@ -69,7 +69,7 @@
         </div>
 
         <div class="d-flex">
-          <button id="view-more" class="btn btn-outline-primary rounded-5 mx-auto">
+          <button id="view-more" class="btn btn-outline-primary rounded-5 mx-auto d-none">
             View More <i class="bi bi-arrow-down"></i>
           </button>
         </div>
