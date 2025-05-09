@@ -6,9 +6,10 @@ const cosmicKitchenAmenity = {
     slug: '../404',
     img_src: 'https://i2-prod.plymouthherald.co.uk/incoming/article5687981.ece/ALTERNATES/s615b/1_EBP_DCM_220721COSMICKITCHEN__001JPG.jpg',
     img_alt: 'Inside Cosmic Kitchen.',
-    distance: 550, // 550m from The Hoe, Plymouth
+    distance: 550, // 550m from The Hoe, Plymouth (Bonfire Night)
     price: 4, // Arbitrary price ranking
-    travelTime: 9, // 9 minutes
+    travelTime: 9, // 9 minutes from The Hoe, Plymouth (Bonfire Night)
+    events: ['bonfire-night-2025', 'british-fireworks-championships'],
 };
 
 // Fictional on-site face painting pop up shop.
@@ -17,9 +18,10 @@ const facePaintingAmenity = {
     slug: '../404',
     img_src: 'https://i.pinimg.com/originals/9f/0b/f9/9f0bf9829d017fe5efca1cbc41960477.jpg',
     img_alt: 'A woman\'s face painted with a flowery pattern.',
-    distance: 100, // 100m
+    distance: 100, // 100m from The Hoe, Plymouth (Bonfire Night)
     price: 2,
-    travelTime: 1, // 1 minute
+    travelTime: 1, // 1 minute from The Hoe, Plymouth (Bonfire Night)
+    events: ['bonfire-night-2025'],
 };
 
 const fishNTripsAmenity = {
@@ -27,9 +29,10 @@ const fishNTripsAmenity = {
     slug: '../404',
     img_src: 'static/images/gone-fishing.jpg',
     img_alt: 'A rustic sign hanging from a door with \'gone fishing\' on it.',
-    distance: 650, // 650m from The Hoe, Plymouth
+    distance: 650, // 650m from The Hoe, Plymouth (Bonfire Night)
     price: 8,
-    travelTime: 10, // 10 minutes
+    travelTime: 10, // 10 minutes from The Hoe, Plymouth (Bonfire Night)
+    events: ['bonfire-night-2025', 'british-fireworks-championships'],
 };
 
 const joeGinAmenity = {
@@ -37,9 +40,10 @@ const joeGinAmenity = {
     slug: '../404',
     img_src: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/4055cbe4-04f1-460c-b838-59f23236911f.__CR0,0,1500,1500_PT0_SX300_V1___.jpg',
     img_alt: 'A bottle of plymouth gin alongside 2 wine glasses full of gin, lemon and ice.',
-    distance: 500, // 500m from The Hoe, Plymouth 
+    distance: 500, // 500m from The Hoe, Plymouth (Bonfire Night)
     price: 10,
-    travelTime: 9, // 9 minutes
+    travelTime: 9, // 9 minutes from The Hoe, Plymouth (Bonfire Night)
+    events: ['bonfire-night-2025', 'british-fireworks-championships'],
 };
 
 const riseAndGrindPlymouthAmenity = {
@@ -47,9 +51,10 @@ const riseAndGrindPlymouthAmenity = {
     slug: '../404',
     img_src: 'https://i2-prod.plymouthherald.co.uk/incoming/article7131490.ece/ALTERNATES/s1200/0_AE_DCM_26_05_2022_risegrind_03jpeg.jpg',
     img_alt: 'The double door grand entrance to the rise and grind coffee shop.',
-    distance: 550, // 550m from The Hoe, Plymouth
+    distance: 550, // 550m from The Hoe, Plymouth (Bonfire Night)
     price: 7,
-    travelTime: 8, // 8 minutes
+    travelTime: 8, // 8 minutes from The Hoe, Plymouth (Bonfire Night)
+    events: ['bonfire-night-2025', 'british-fireworks-championships'],
 };
 
 const waypointBarAndBistroAmenity = {
@@ -57,9 +62,10 @@ const waypointBarAndBistroAmenity = {
     slug: 'waypoint-bar-and-bistro',
     img_src: 'https://img.restaurantguru.com/w550/h367/r8d0-Waypoint-Bar-and-Bistro-interior.jpg',
     img_alt: 'A view through glass painted with the waypoint compass logo into the dining area.',
-    distance: 1500, // 1.5km from The Hoe, Plymouth
+    distance: 1500, // 1.5km from The Hoe, Plymouth (Bonfire Night)
     price: 5,
-    travelTime: 21, // 21 minutes
+    travelTime: 21, // 21 minutes from The Hoe, Plymouth (Bonfire Night)
+    events: ['bonfire-night-2025', 'british-fireworks-championships'],
 };
 
 const amenities = [
@@ -97,11 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const viewMore = document.getElementById("view-more");
 
     const params = new URLSearchParams(document.location.search);
-    const query = params.has('q') ? params.get('q'): '';
+    const queries = params.has('q') ? params.getAll('q'): [];
     const sort = params.has('sort') ? params.get('sort'): 'closest';
 
-    amenitySearch.value = query;
     amenitySort.value = sort;
+
+    console.log(queries);
 
     // Determine which sort function to use based on the sort parameter.
     let sortFn;
@@ -120,8 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
     }
 
-    // filter((amenity) => amenity.title.toLocaleLowerCase().match(query.toLocaleLowerCase()));
-    sortedAmenities = amenities.slice();
+    // By default include all amenities.
+    if (queries.length != 0){
+        sortedAmenities = amenities.filter((amenity) => queries.every((query) => amenity.events.includes(query)));
+    } else {
+        sortedAmenities = amenities.slice();
+    }
     sortedAmenities.sort(sortFn);
 
     if (sortedAmenities.length <= amenitiesShownPerPage){

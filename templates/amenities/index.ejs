@@ -6,7 +6,10 @@
     <script type="module">
       import Tags from "https://cdn.jsdelivr.net/npm/bootstrap5-tags@1.7.13/tags.min.js";
 
-      Tags.init();
+      const params = new URLSearchParams(document.location.search);
+      const queries = params.has('q') ? params.getAll('q'): [];
+
+      Tags.init("select[multiple]", {selected: queries.join(',')});
     </script>
     <script src="static/js/amenities.js"></script>
   </head>
@@ -23,13 +26,14 @@
               <div class="flex-fill tags-search-container">
                 <select class="form-control" id="amenity-search" 
                 name="q" type="search" placeholder="Filter by event(s)" aria-label="Search" 
+                data-allow-clear="true" data-clear-end="true"
                 multiple>
                   <option value="bonfire-night-2025">Bonfire Night 2025</option>
                   <option value="bonfire-and-fireworks-night-at-port-eliot-house-and-gardens">
-                    Bonfire and Fireworks Night at Port Eliot House and Gardens
+                    Port Eliot Bonfire and Fireworks Night
                   </option>
                   <option value="big-bonfire-night-and-firework-display-at-dartington-hall">
-                    Big Bonfire Night and Firework Display at Dartington Hall
+                    Dartington Hall Big Bonfire Night
                   </option>
                   <option value="lions-club-of-tavistock-fireworks-display">
                     Lions Club of Tavistock Fireworks Display

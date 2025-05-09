@@ -2,6 +2,15 @@
 <html lang="en" data-bs-theme="light">
   <head>
 <%- include('../../partials/head', {title: 'Livestreams'}); %>
+    <script type="module">
+      import Tags from "https://cdn.jsdelivr.net/npm/bootstrap5-tags@1.7.13/tags.min.js";
+
+      const params = new URLSearchParams(document.location.search);
+      const queries = params.has('q') ? params.getAll('q'): [];
+
+      Tags.init("select[multiple]", {selected: queries.join(',')});
+    </script>
+    <script src="static/js/livestreams.js"></script>
   </head>
   <body>
 <%- include('../../partials/header', {page: ['archive', 'livestreams']}); %>
@@ -9,35 +18,132 @@
     <div class="container py-2 px-3 mx-auto">
       <h1 class="text-center">Livestreams</h1>
       <form class="mt-5 mb-2">
-        <div class="input-group">
-          <input class="form-control" type="search" placeholder="Filter by event(s)" aria-label="Search">
+        <div class="input-group flex-nowrap">
+          <div class="flex-fill tags-search-container">
+            <select class="form-control" id="amenity-search" 
+            name="q" type="search" placeholder="Filter by event(s)" aria-label="Search" 
+            data-allow-clear="true" data-clear-end="true"
+            multiple>
+              <option value="bonfire-night">Bonfire Night</option>
+              <option value="bonfire-and-fireworks-night-at-port-eliot-house-and-gardens">
+                Port Eliot Bonfire and Fireworks Night
+              </option>
+              <option value="big-bonfire-night-and-firework-display-at-dartington-hall">
+                Dartington Hall Big Bonfire Night
+              </option>
+              <option value="lions-club-of-tavistock-fireworks-display">
+                Lions Club of Tavistock Fireworks Display
+              </option>
+              <option value="british-fireworks-championships">
+                British Fireworks Championships
+              </option>
+            </select>
+          </div>
           <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
         </div>
       </form>
 
-<% for( let year = 2024; year >= 2022; year-- ) { %>
-      <div class="d-flex w-100 pt-2 pt-md-5">
-        <button class="btn btn-outline-primary rounded-end-0 shadow p-0"
-                onclick="document.getElementById('livestreamCards<%=year%>').scrollBy({'top': 0, 'left': -300, 'behavior': 'smooth'})">
-          <i class="bi bi-chevron-compact-left display-6"></i>
-      </button>
-        <div id="livestreamCards<%=year%>" class="d-flex overflow-scroll livestream-card-grid w-100 overflow-y-hidden">
-<% for( let index = 0; index < 4; index++ ) { %>
-<%- include('../../partials/livestream-card/2024-british-fireworks-championships-night-1') %>
-<% } %>
-        </div>
-        <button class="btn btn-outline-primary rounded-start-0 shadow p-0"
-                onclick="document.getElementById('livestreamCards<%=year%>').scrollBy({'top': 0, 'left': 300, 'behavior': 'smooth'})">
-          <i class="bi bi-chevron-compact-right display-6"></i>
+      <!-- 2024 Shelf -->
+      <section class="shelf" data-year="2024">
+        <div class="d-flex w-100 pt-2 pt-md-5">
+          <button class="btn btn-outline-primary rounded-end-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2024').scrollBy({'top': 0, 'left': -300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-left display-6"></i>
         </button>
-      </div>
+          <div id="livestreamCards2024" class="d-flex overflow-scroll livestream-card-grid w-100 overflow-y-hidden">
+  <% for( let index = 0; index < 2; index++ ) { %>
+  <%- include('../../partials/livestream-card/2024-british-fireworks-championships-night-1') %>
+  <%- include('../../partials/livestream-card/2024-british-fireworks-championships-night-2') %>
+  <% } %>
+          </div>
+          <button class="btn btn-outline-primary rounded-start-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2024').scrollBy({'top': 0, 'left': 300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-right display-6"></i>
+          </button>
+        </div>
 
-      <div class="d-flex w-100 flex-row justify-content-center align-items-center">
-        <hr class="w-100">
-        <span class="text-center display-6"><%= year %></span>
-        <hr class="w-100">
-      </div>
-<% } %>
+        <div class="d-flex w-100 flex-row justify-content-center align-items-center">
+          <hr class="w-100">
+          <span class="text-center display-6">2024</span>
+          <hr class="w-100">
+        </div>
+      </section>
+
+      <!-- 2023 Shelf -->
+      <section class="shelf" data-year="2023">
+        <div class="d-flex w-100 pt-2 pt-md-5">
+          <button class="btn btn-outline-primary rounded-end-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2023').scrollBy({'top': 0, 'left': -300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-left display-6"></i>
+        </button>
+          <div id="livestreamCards2023" class="d-flex overflow-scroll livestream-card-grid w-100 overflow-y-hidden">
+  <%- include('../../partials/livestream-card/2023-british-fireworks-championships-night-1') %>
+  <%- include('../../partials/livestream-card/2023-british-fireworks-championships-night-2') %>
+  <%- include('../../partials/livestream-card/2023-port-eliot-bonfire-night') %>
+          </div>
+          <button class="btn btn-outline-primary rounded-start-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2023').scrollBy({'top': 0, 'left': 300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-right display-6"></i>
+          </button>
+        </div>
+
+        <div class="d-flex w-100 flex-row justify-content-center align-items-center">
+          <hr class="w-100">
+          <span class="text-center display-6">2023</span>
+          <hr class="w-100">
+        </div>
+      </section>
+
+      <!-- 2022 Shelf -->
+      <section class="shelf" data-year="2022">
+        <div class="shelf d-flex w-100 pt-2 pt-md-5" data-year="2022">
+          <button class="btn btn-outline-primary rounded-end-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2022').scrollBy({'top': 0, 'left': -300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-left display-6"></i>
+        </button>
+          <div id="livestreamCards2022" class="d-flex overflow-scroll livestream-card-grid w-100 overflow-y-hidden">
+  <%- include('../../partials/livestream-card/2022-british-fireworks-championships-night-1') %>
+  <%- include('../../partials/livestream-card/2022-british-fireworks-championships-night-2') %>
+  <%- include('../../partials/livestream-card/2022-bonfire-night') %>
+  <%- include('../../partials/livestream-card/2022-port-eliot-bonfire-night') %>
+          </div>
+          <button class="btn btn-outline-primary rounded-start-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2022').scrollBy({'top': 0, 'left': 300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-right display-6"></i>
+          </button>
+        </div>
+
+        <div class="d-flex w-100 flex-row justify-content-center align-items-center">
+          <hr class="w-100">
+          <span class="text-center display-6">2022</span>
+          <hr class="w-100">
+        </div>
+      </section>
+
+      <!-- 2021 Shelf -->
+       <section class="shelf" data-year="2021">
+        <div class=" d-flex w-100 pt-2 pt-md-5" >
+          <button class="btn btn-outline-primary rounded-end-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2021').scrollBy({'top': 0, 'left': -300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-left display-6"></i>
+        </button>
+          <div id="livestreamCards2021" class="d-flex overflow-scroll livestream-card-grid w-100 overflow-y-hidden">
+  <%- include('../../partials/livestream-card/2021-bonfire-night') %>
+  <%- include('../../partials/livestream-card/2021-british-fireworks-championships-night-1') %>
+  <%- include('../../partials/livestream-card/2021-british-fireworks-championships-night-2') %>
+          </div>
+          <button class="btn btn-outline-primary rounded-start-0 shadow p-0"
+                  onclick="document.getElementById('livestreamCards2021').scrollBy({'top': 0, 'left': 300, 'behavior': 'smooth'})">
+            <i class="bi bi-chevron-compact-right display-6"></i>
+          </button>
+        </div>
+
+        <div class="d-flex w-100 flex-row justify-content-center align-items-center">
+          <hr class="w-100">
+          <span class="text-center display-6">2021</span>
+          <hr class="w-100">
+        </div>
+      </section>
 
     </div>
   </main>
