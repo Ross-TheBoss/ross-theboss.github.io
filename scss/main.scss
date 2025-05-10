@@ -1,5 +1,3 @@
-$primary: #fd6914 !default; // bootstrap orange
-
 // Jumbotron
 .jumbotron {
   position: relative;
@@ -92,7 +90,27 @@ $primary: #fd6914 !default; // bootstrap orange
   margin-left: 1.25rem;
 }
 
+// Clickable firework and amenity cards
 .clickable-firework-event, .clickable-amenity-card {
   text-decoration: none;
   color: var(--bs-card-color);
 }
+
+// Customise the bootstrap date picker.
+.datepicker {
+  table tr td span {
+    &.active {
+      background-color: var(--bs-primary) !important;
+    }
+  
+    &:hover, &.focused {
+      color: var(--bs-black);
+    }
+  }
+
+  .datepicker-switch, .prev, .next {
+    &:hover {
+      color: var(--bs-black) !important;
+    }
+  }
+} 

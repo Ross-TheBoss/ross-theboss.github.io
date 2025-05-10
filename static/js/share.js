@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Insert the correct URL to copy and to share on social media.
     const shareLink = document.getElementById("share-link");
     shareLink.href = document.location;
     shareLink.textContent = document.location;

@@ -72,7 +72,7 @@ const waypointBarAndBistroAmenity = {
 
 const properPizzaAmenity = {
     title: 'Proper Pizza',
-    slug: 'proper-pizza',
+    slug: '../404',
     img_src: 'https://img.restaurantguru.com/r27b-pizza-Proper-Pizza-Tavistock-2022-10.jpg',
     img_alt: 'A meat feast pizza with pepperoni, ham and sausage, reviewed by Restaurant Guru.',
     distances: {'lions-club-of-tavistock-fireworks-display': 1500},
@@ -85,7 +85,7 @@ const properPizzaAmenity = {
 
 const cafeLiaison = {
     title: 'Cafe Liaison',
-    slug: 'cafe-liaison',
+    slug: '../404',
     img_src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/f2/f1/93/from-the-outside.jpg',
     img_alt: 'Cafe Liaison from the outside.',
     distances: {'lions-club-of-tavistock-fireworks-display': 2100},

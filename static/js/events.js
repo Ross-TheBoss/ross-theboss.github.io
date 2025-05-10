@@ -73,7 +73,7 @@ const bigBonfireNightAndFireworkDisplayEvent = {
 
 }
 
-// List of event objects - contains lots of duplicates for testing purposes
+// List of event objects
 const events = [
     bonfireNightEvent, 
     britishFireworksChampionshipEvent, 
