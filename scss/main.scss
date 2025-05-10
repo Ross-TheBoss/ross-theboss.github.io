@@ -75,7 +75,7 @@
 
   // Hover effect
   &:hover a {
-      background-color: var(--bs-btn-hover-color);
+      background-color: var(--bs-link-hover-color);
   }
 
   // Arrow borders
@@ -97,7 +97,7 @@
   }
 
   &:hover a::before{
-      border-left-color: var(--bs-btn-hover-color);
+      border-left-color: var(--bs-link-hover-color);
   }
 
   a::after {
@@ -122,7 +122,7 @@
       }
 
       &:hover::before {
-          background-color: var(--bs-btn-hover-color);
+          background-color: var(--bs-link-hover-color);
       }
   }
   
@@ -318,7 +318,7 @@
 }
 
 // Clickable firework and amenity cards
-.clickable-firework-event, .clickable-amenity-card {
+.clickable-firework-event, .clickable-amenity-card, .clickable-livestream-card {
   text-decoration: none;
   color: var(--bs-card-color);
 }
