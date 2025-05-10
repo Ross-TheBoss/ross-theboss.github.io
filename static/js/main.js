@@ -19,3 +19,23 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
   .forEach(popover => {
     new bootstrap.Popover(popover)
   });
+
+// Reduce animation motion for accessibility by
+// disabling autoplay on videos when prefers-reduced-motion is enabled.
+const mediaQuery = window.matchMedia('(prefers-reduced-motion: no-preference)');
+
+const setAutoplay = () => {
+  Array.from(document.getElementsByTagName("video")).forEach(
+    (video) => {
+      video.autoplay = mediaQuery.matches;
+      if (mediaQuery.matches){
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  );
+}
+
+mediaQuery.onchange = setAutoplay;
+setAutoplay();

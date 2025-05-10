@@ -14,14 +14,6 @@
 // Bring in Bootstrap
 //
 
-// Option 1
-//
-// Import all of Bootstrap's CSS
-
-// @import "bootstrap/scss/bootstrap";
-
-// Option 2
-//
 // Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
 
 // Toggle global options
@@ -102,8 +94,6 @@ $bootstrap-icons-font-dir: "../fonts";
 // Custom styles
 //
 
-// Return to top button
-
 // Return to Top button
 @include media-breakpoint-down(lg){
     .return-to-top-text {
@@ -117,143 +107,6 @@ $bootstrap-icons-font-dir: "../fonts";
     }
 }
 
-// Navbar Dark Mode
-#navbar {
-    @extend .bg-light;
-}
-
-[data-bs-theme=dark] #navbar {
-    @extend .bg-dark-subtle;
-}
-
-// Breadcrumbs
-
-.breadcrumb-item {
-    position: relative;
-    padding-right: 16px;
-
-    // Border around the full breadcrumbs element (where there are links).
-    border-top: solid 1px $primary-border-subtle;
-    border-bottom: solid 1px $primary-border-subtle;
-
-    &:first-child {
-        border-left: solid 1px $primary-border-subtle;
-        border-bottom-left-radius: 0.25em;
-        border-top-left-radius: 0.25em;
-
-        span, a {
-            border-bottom-left-radius: 0.25em;
-            border-top-left-radius: 0.25em;
-        }
-    }
-
-    &:last-child {
-        border-right: solid 1px $primary-border-subtle;
-        border-bottom-right-radius: 0.25em;
-        border-top-right-radius: 0.25em;
-    }
-
-    // Links to higher pages look like buttons.
-    span, a {
-        display: inline-block;
-        position: relative;
-        height: 100%;
-        padding: 0.25em 0.5em;
-        background-color: $primary;
-        color: $white;
-    }
-
-    // Hover effect
-    &:hover a {
-        background-color: $btn-link-hover-color;
-    }
-
-    // Arrow borders
-    a::before, a::after {
-        position: absolute;
-        width: 0;
-        height: 0;
-        content: "";
-    }
-
-    a::before {
-        z-index: 2;
-        top: 0;
-        right: -14px;
-
-        border-top: solid 16px transparent;
-        border-bottom: solid 16px transparent;
-        border-left: solid 16px $primary;
-    }
-
-    &:hover a::before{
-        border-left-color: $btn-link-hover-color;
-    }
-
-    a::after {
-        z-index: 1;
-        top: 0;
-        right: -16px;
-
-        border-top: solid 16px transparent;
-        border-bottom: solid 16px transparent;
-        border-left: solid 16px $primary-border-subtle;
-    }
-
-    // Cover for area before this breadcrumb.
-    & + &:not(.active) {
-        &::before {
-            content: "";
-            position: absolute;
-            width: 32px;
-            height: 100%;
-            left: -16px;
-            background-color: $primary;
-        }
-
-        &:hover::before {
-            background-color: $btn-link-hover-color;
-        }
-    }
-    
-    &.active {
-        background-color: transparent;
-
-        span, a {
-            background-color: transparent;
-            color: $primary;
-        }
-    }
-}
-
-@import "icon-list";
-
-// Firework Event Card, Amenity Card and Livestream Card
-.amenity-card:hover, .firework-event:hover, .livestream-card:hover {
-    @extend .shadow;
-    z-index: 10;
-    transform: scale(1.01);
-    transition: box-shadow 0.5s, transform 0.5s;
-}
-
-.amenity-card, .firework-event, .livestream-card {
-    transform: scale(1);
-    transition: box-shadow 0.5s, transform 0.5s;
-}
-
-// Firework Event
-
-.firework-event-image {
-    width: 20em; 
-    min-height: 16em; 
-    height: 16em;
-
-    border-bottom-left-radius: unset;
-    border-top-left-radius: unset;
-
-    @extend .rounded-end;
-}
-
 @include media-breakpoint-down(md){
     .firework-event-image {
         width: 100%;
@@ -263,82 +116,6 @@ $bootstrap-icons-font-dir: "../fonts";
         // .rounded-top
         border-top-left-radius: var(--bs-border-radius) !important;
         border-top-right-radius: var(--bs-border-radius) !important;
-    }
-}
-
-// Amenity card grid vs list
-.amenity-card img {
-    filter: brightness(60%);
-}
-
-.amenity-card-grid {
-    .amenity-card {
-        // @extend .w-25;
-
-        .ratio {
-            @extend .w-100;
-        }
-    
-        .amenity-card-overlay {
-            @extend .top-0;
-            @extend .position-absolute;
-            color: white;
-        }
-        
-        .amenity-card-overlay * {
-            background-color: rgba(0.0, 0.0, 0.0, 0.5);
-        }
-    }
-}
-
-.amenity-card-list {
-    @extend .gap-3;
-
-    .amenity-card {
-        min-height: 10em;
-        @extend .w-100;
-        @extend .d-flex;
-    
-        .ratio {
-            min-width: 10em;
-            @extend .w-25;
-        }
-    }
-}
-
-.tags-badge {
-    @extend .p-1;
-    @extend .rounded-2;
-    color: white;
-}
-
-.tags-search-container .dropdown {
-    border-bottom-right-radius: unset;
-    border-top-right-radius: unset;
-
-    // .rounded-start
-    border-bottom-left-radius: var(--bs-border-radius) !important;
-    border-top-left-radius: var(--bs-border-radius) !important;
-}
-
-// Livestream Card
-.livestream-card-grid {
-    .livestream-card {
-        width: 38%;
-
-        .ratio {
-            @extend .w-100;
-        }
-    
-        .livestream-card-overlay {
-            @extend .top-0;
-            @extend .position-absolute;
-            color: white;
-        }
-        
-        .livestream-card-overlay * {
-            background-color: rgba(0.0, 0.0, 0.0, 0.5);
-        }
     }
 }
 

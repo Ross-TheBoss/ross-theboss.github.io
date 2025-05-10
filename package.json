@@ -21,9 +21,9 @@
     "static-copy": "cp -r static/. public/static",
 
     "css": "npm-run-all css-compile css-prefix",
-    "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules scss/:public/static/css/",
+    "css-compile": "sass --style expanded --no-source-map --no-error-css --load-path=node_modules scss/:public/static/css/",
     "css-lint": "stylelint scss/",
-    "css-prefix": "postcss --replace public/static/css/styles.css --use autoprefixer --map",
+    "css-prefix": "postcss --replace public/static/css/styles.css --use autoprefixer --no-map",
 
     "start": "npm-run-all prepare --parallel server watch",
     "server": "sirv public --dev --no-clear --port 3000",
