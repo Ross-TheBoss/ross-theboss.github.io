@@ -10,21 +10,16 @@
   },
   "scripts": {
     "build": "npm-run-all prepare compile",
-
     "prepare": "npm-run-all clean set-base",
-    "clean": "rm -rf public/",
+    "clean": "shx rm -rf public/",
     "set-base": "node set-base.js",
-
     "compile": "npm-run-all css ejs-compile static-copy",
- 
     "ejs-compile": "ejs-cli -b templates \"**/*.ejs\" --exclude \"partials\" --out public/",
-    "static-copy": "cp -r static/. public/static",
-
+    "static-copy": "shx cp -r static/. public/static",
     "css": "npm-run-all css-compile css-prefix",
     "css-compile": "sass --style expanded --no-source-map --no-error-css --load-path=node_modules scss/:public/static/css/",
     "css-lint": "stylelint scss/",
     "css-prefix": "postcss --replace public/static/css/styles.css --use autoprefixer --no-map",
-
     "start": "npm-run-all prepare --parallel server watch",
     "server": "sirv public --dev --no-clear --port 3000",
     "watch": "nodemon -e ejs,scss -x npm run compile",
@@ -39,11 +34,13 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.7",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
     "sass": "^1.86.3",
+    "shx": "^0.4.0",
     "sirv-cli": "^2.0.2",
     "stylelint": "^16.9.0",
     "stylelint-config-twbs-bootstrap": "^15.0.0"
